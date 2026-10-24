@@ -1480,9 +1480,34 @@ Maintain Better Risk-Adjusted Time Management Consistency Than The Market Standa
     
 
     <div class="cfooter">
+      </div>
+        <!-- Simple Visitor Counter Badge -->
+<!-- Permanent Working Visitor Counter -->
+<div style="text-align: center; margin: 20px 0; font-family: sans-serif;">
+  <div style="display: inline-block; background: #17243a; border: 1px solid #39465c; padding: 10px 18px; border-radius: 8px; color: #fff; font-size: 14px;">
+    👥 Visitors: <span id="visitor-count" style="color: #20c879; font-weight: bold; font-size: 16px;">Loading...</span>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var namespace = "investmentsmart28-del-trusted";
+    var key = "landing_visits";
+    fetch('https://api.countapi.xyz/hit/' + namespace + '/' + key)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        document.getElementById('visitor-count').innerText = data.value;
+      })
+      .catch(function() {
+        // Fallback agar API block bhi ho jaye
+        var count = localStorage.getItem('local_visits') || 100;
+        count = parseInt(count) + 1;
+        localStorage.setItem('local_visits', count);
+        document.getElementById('visitor-count').innerText = count;
+      });
+  })();
+</script>
       
-      
-    </div>
   </div>
 </section>
 
